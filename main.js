@@ -18,20 +18,22 @@ dateInput.addEventListener("change",dateChange)
 
 
 var submitButton = document.querySelector('#book')
-var emailError = document.querySelector('#email-error')
 submitButton.addEventListener("click",ValidateEmail)
 var modal = document.getElementById("myModal");
+var emailError = document.querySelector('#email-error')
 
 function ValidateEmail(event, emailInput)
 {
+    var nameInput = document.querySelector('#name')
+    var numberInput = document.querySelector('#number')
     
-    var bookingData = document.querySelector('#bookingData')
+    emailError.style.visibility = "hidden"
     emailInput = document.querySelector('#email').value
     let everythingIsOK = []
     var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if(emailInput.match(mailformat)){
+        emailError.style.visibility = "hidden"
         for(let elements of form){
-            console.log(elements.validity.valid)
             if(elements.validity.valid == true){
                 let row = document.createElement("p")
                 row.innerHTML = elements.value
@@ -42,31 +44,12 @@ function ValidateEmail(event, emailInput)
             }
 
         }
-        console.log(everythingIsOK)
-        if(everythingIsOK.includes(true) == false){
-            form.submit = false
-            modal.style.display = "block"
+        if(everythingIsOK.includes(false) == false){
+            alert("Reservation for:\n" + nameInput.value + " \nemail: " + emailInput + " \nReservation date: "+ dateInput.value + " " + timeInput.value + "\nNumber of people: " + numberInput.value )
         }
     }else{
-        emailError.innerHTML="Wrong email format ";
+        emailError.innerHTML = "Wrong email format!"
+        emailError.style.visibility = "visible";
         return false;
     }
 }
-
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-    location.reload()
-}
-
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-
