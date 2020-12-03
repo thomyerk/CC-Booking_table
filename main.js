@@ -9,9 +9,13 @@ var dateInput = document.querySelector("input[type='date']")
 dateInput.setAttribute("min",todaysDate)
 var timeInput = document.querySelector("input[type='time']")
 
-if(dateInput.value == todaysDate){
-    timeInput.setAttribute("min",(hours+1) + ':' + minutes)
+function dateChange(){
+    if(dateInput.value == todaysDate){
+        timeInput.setAttribute("min",(hours+1) + ':' + minutes)
+    }
 }
+dateInput.addEventListener("change",dateChange)
+
 
 var submitButton = document.querySelector('#book')
 var emailError = document.querySelector('#email-error')
@@ -20,17 +24,28 @@ var modal = document.getElementById("myModal");
 
 function ValidateEmail(event, emailInput)
 {
-    event.preventDefault()
+    
     var bookingData = document.querySelector('#bookingData')
     emailInput = document.querySelector('#email').value
+    let everythingIsOK = []
     var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if(emailInput.match(mailformat)){
         for(let elements of form){
-            console.log(elements.value)
-            modal.style.display = "block";
-            let row = document.createElement("p")
-            row.innerHTML = elements.value
-            document.getElementById("formResults").appendChild(row)
+            console.log(elements.validity.valid)
+            if(elements.validity.valid == true){
+                let row = document.createElement("p")
+                row.innerHTML = elements.value
+                document.getElementById("formResults").appendChild(row)
+                everythingIsOK.push(true)
+            }else{
+                everythingIsOK.push(false)
+            }
+
+        }
+        console.log(everythingIsOK)
+        if(everythingIsOK.includes(true) == false){
+            form.submit = false
+            modal.style.display = "block"
         }
     }else{
         emailError.innerHTML="Wrong email format ";
