@@ -45,6 +45,7 @@ function ValidateEmail(event, emailInput)
 
         }
         if(everythingIsOK.includes(false) == false){
+            console.log("Reservation for:\n" + nameInput.value + " \nemail: " + emailInput + " \nReservation date: "+ dateInput.value + " " + timeInput.value + "\nNumber of people: " + numberInput.value )
             alert("Reservation for:\n" + nameInput.value + " \nemail: " + emailInput + " \nReservation date: "+ dateInput.value + " " + timeInput.value + "\nNumber of people: " + numberInput.value )
         }
     }else{
