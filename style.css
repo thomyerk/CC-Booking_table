@@ -20,7 +20,7 @@
 /* HEADER SECTION */
 header {
   height: 100vh;
-  background-image: url('img/bgpizza.jpg');
+  background-image: url('img/bghajni.png');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -38,9 +38,14 @@ header div {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #11111165;
-  width: 100%;
+  /* background-color: #11111165; */
+  /* width: 100%; */
   height: 33%;
+  padding: 20px 0;
+}
+
+header div svg {
+  cursor: pointer;
 }
 
 header h1 {
@@ -145,6 +150,7 @@ header a:hover {
   justify-content: center;
   align-items: center;
   border: 4px solid var(--color-olive);
+  border-radius: 7px;
   padding: 20px;
 }
 
@@ -187,6 +193,7 @@ footer a {
 
 /*BOOKING PAGE*/
 .table-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -260,6 +267,17 @@ footer a {
   margin-top: 5px;
 }
 
+#home-button {
+  font-size: 3rem;
+  position: absolute;
+  top: 0;  ;
+  left: 0;
+  border-radius: 7px;
+  background-color: var(--color-olive);
+  color: var(--color-ivory);
+  padding: 5px 15px;
+  margin: 20px 0 0 20px;
+}
 
 #email-error{
   border: 1px solid red;
