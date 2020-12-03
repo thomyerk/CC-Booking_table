@@ -10,39 +10,44 @@
 </head>
 
 <body>
-    <div id="booking-container">
-        <form action="" method="get" id="form">
-            <input type="text" placeholder="Name" id="name" required>
-            <input type="email" id='email' placeholder="Email address" required>
-            <div id="email-error"></div>
-            <input type="date" min="" required>
-            <input type="time" name="time" id="time" required>
-            <input type="number" value="2" required>
-            <button id="book">Book the table</button>
-        </form>
-        <div id="bookingData">
+    <section class="table-container">
+        <div id="booking-container">
+            <img src="img/tableoverlay.png" alt="table">
+            <div id="book-table">Book a Table</div>
+            <form action="" method="get" id="form">
+                <input type="text" placeholder="Name" id="name" required>
+                <input type="email" id='email' placeholder="Email address" required>
+                <div id="email-error"></div>
+                <input type="date" min="" required>
+                <input type="time" name="time" id="time" required>
+                <input type="number" value="2" required>
+                <button id="book">Book the table</button>
+            </form>
+        </div>
+    </section>
+<!--     <div id="bookingData">
 
-        </div>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Reservation details</h2>
-                </div>
-                <div class="modal-body">
-                    <p>Name: </p>
-                    <p>Email: </p>
-                    <p>Date: </p>
-                    <p>Time: </p>
-                    <p>How many people: </p>
-                </div>
-                <div class="modal-body" id="formResults">
-                </div>
-                <div class="modal-footer">
-                </div>
-                <button class="close">Close</button>
+    </div> -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Reservation details</h2>
             </div>
-            
+            <div class="modal-body">
+                <p>Name: </p>
+                <p>Email: </p>
+                <p>Date: </p>
+                <p>Time: </p>
+                <p>How many people: </p>
+            </div>
+            <div class="modal-body" id="formResults">
+            </div>
+            <div class="modal-footer">
+            </div>
+            <button class="close">Close</button>
         </div>
+
+    </div>
     </div>
 </body>
 
