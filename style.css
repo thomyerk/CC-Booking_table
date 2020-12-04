@@ -380,6 +380,10 @@ footer a {
   .menu-container table {
     width: 400px;
   }
+  #book-table {
+    left: 74px;
+    top: 45%
+  }
 }
 
 @media (max-width: 970px) {
